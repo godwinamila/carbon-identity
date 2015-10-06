@@ -31,9 +31,14 @@ import org.wso2.carbon.identity.application.common.model.LocalAndOutboundAuthent
 import org.wso2.carbon.identity.application.common.model.ServiceProvider;
 import org.wso2.carbon.identity.application.mgt.ApplicationConstants;
 import org.wso2.carbon.identity.application.mgt.ApplicationMgtSystemConfig;
+import org.wso2.carbon.identity.application.mgt.dao.IdentityProviderDAO;
 import org.wso2.carbon.identity.base.IdentityException;
+import org.wso2.carbon.identity.core.model.IdentityEventListener;
+import org.wso2.carbon.identity.core.util.IdentityCoreConstants;
+import org.wso2.carbon.identity.core.util.IdentityUtil;
 import org.wso2.carbon.idp.mgt.IdentityProviderManagementException;
 import org.wso2.carbon.idp.mgt.listener.AbstractIdentityProviderMgtListener;
+import org.wso2.carbon.idp.mgt.listener.IdentityProviderMgtListener;
 
 public class IdentityProviderMgtApplicationListener extends AbstractIdentityProviderMgtListener {
 
@@ -54,25 +59,15 @@ public class IdentityProviderMgtApplicationListener extends AbstractIdentityProv
                         .getLocalAndOutBoundAuthenticationConfig();
                 AuthenticationStep[] authSteps = localAndOutboundAuthConfig.getAuthenticationSteps();
 
-                // Check IDP is already used when disable IDP
-                if (!identityProvider.isEnable()) {
-                    for (AuthenticationStep authenticationStep : localAndOutboundAuthConfig.getAuthenticationSteps()) {
-                        for (IdentityProvider idpProvider : authenticationStep.getFederatedIdentityProviders()) {
-                            if (identityProvider.getIdentityProviderName()
-                                    .equals(idpProvider.getIdentityProviderName())) {
-                                throw new IdentityProviderManagementException(
-                                        "Cannot disable identity provider, it is already being used.");
-                            }
-                        }
-                    }
-                }
-
                 if (ApplicationConstants.AUTH_TYPE_FEDERATED
                         .equalsIgnoreCase(localAndOutboundAuthConfig.getAuthenticationType())) {
 
                     IdentityProvider fedIdp = authSteps[0].getFederatedIdentityProviders()[0];
                     if (StringUtils.equals(fedIdp.getIdentityProviderName(), identityProvider
                             .getIdentityProviderName())) {
+                        IdentityProviderDAO idpDAO = ApplicationMgtSystemConfig.getInstance()
+                                .getIdentityProviderDAO();
+
                         String defualtAuthName = fedIdp
                                 .getDefaultAuthenticatorConfig().getName();
 
@@ -93,9 +88,6 @@ public class IdentityProviderMgtApplicationListener extends AbstractIdentityProv
         }
         return true;
     }
-
-
-
 
     public int getDefaultOrderId(){
         return 10;
