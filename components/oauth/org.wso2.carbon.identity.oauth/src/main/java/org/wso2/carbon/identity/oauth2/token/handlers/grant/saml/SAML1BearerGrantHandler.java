@@ -230,10 +230,9 @@ public class SAML1BearerGrantHandler extends AbstractAuthorizationGrantHandler {
                 if (log.isDebugEnabled()) {
                     log.debug("Issuer is :" + assertion.getIssuer());
                 }
-                identityProvider =
-                        IdentityProviderManager.getInstance().getIdPByAuthenticatorPropertyValue("IdPEntityId",
-                                                                                                 assertion.getIssuer(),
-                                                                                                 tenantDomain, false);
+                identityProvider = IdentityProviderManager.getInstance()
+                        .getIdPByAuthenticatorPropertyValue(IdentityApplicationConstants.Authenticator.SAML2SSO.NAME,
+                                "IdPEntityId", assertion.getIssuer(), tenantDomain, false);
                 // IF Federated IDP not found get the resident IDP and check,
                 // resident IDP entitiID == issuer
                 if (identityProvider != null) {

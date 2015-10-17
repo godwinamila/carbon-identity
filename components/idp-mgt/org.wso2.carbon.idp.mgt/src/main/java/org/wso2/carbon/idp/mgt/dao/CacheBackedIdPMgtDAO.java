@@ -132,7 +132,7 @@ public class CacheBackedIdPMgtDAO {
      * @return
      * @throws IdentityProviderManagementException
      */
-    public IdentityProvider getIdPByAuthenticatorPropertyValue(Connection dbConnection, String property, String value,
+    public IdentityProvider getIdPByAuthenticatorPropertyValue(Connection dbConnection, String authenticator, String property, String value,
                                                                int tenantId, String tenantDomain)
             throws IdentityProviderManagementException {
 
@@ -149,7 +149,7 @@ public class CacheBackedIdPMgtDAO {
                     + " and with value " + value + ". Fetching entry from DB");
         }
 
-        IdentityProvider identityProvider = idPMgtDAO.getIdPByAuthenticatorPropertyValue(dbConnection, property, value,
+        IdentityProvider identityProvider = idPMgtDAO.getIdPByAuthenticatorPropertyValue(dbConnection, authenticator, property, value,
                 tenantId, tenantDomain);
 
         if (identityProvider != null) {

@@ -765,7 +765,7 @@ public class IdentityProviderManager {
      * @throws IdentityProviderManagementException Error when getting Identity Provider
      *                                                information by authenticator property value
      */
-    public IdentityProvider getIdPByAuthenticatorPropertyValue(String property, String value, String tenantDomain,
+    public IdentityProvider getIdPByAuthenticatorPropertyValue(String authenticator, String property, String value, String tenantDomain,
                                                                boolean ignoreFileBasedIdps)
             throws IdentityProviderManagementException {
 
@@ -776,8 +776,8 @@ public class IdentityProviderManager {
             throw new IdentityProviderManagementException(msg);
         }
 
-        IdentityProvider identityProvider = dao.getIdPByAuthenticatorPropertyValue(
-                null, property, value, tenantId, tenantDomain);
+        IdentityProvider identityProvider = dao
+                .getIdPByAuthenticatorPropertyValue(null, authenticator, property, value, tenantId, tenantDomain);
 
         if (identityProvider == null && !ignoreFileBasedIdps) {
             identityProvider = new FileBasedIdPMgtDAO()

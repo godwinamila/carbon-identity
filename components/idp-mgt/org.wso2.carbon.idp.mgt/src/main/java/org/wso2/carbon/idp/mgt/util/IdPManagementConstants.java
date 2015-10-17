@@ -197,7 +197,8 @@ public class IdPManagementConstants {
                 "idp.DISPLAY_NAME " +
                 "FROM IDP idp INNER JOIN  IDP_AUTHENTICATOR idp_auth ON idp.ID = idp_auth.IDP_ID INNER JOIN " +
                 "IDP_AUTHENTICATOR_PROPERTY idp_auth_pro ON idp_auth.ID = idp_auth_pro.AUTHENTICATOR_ID " +
-                "WHERE  idp_auth_pro.PROPERTY_KEY =?  AND idp_auth_pro.PROPERTY_VALUE = ? AND idp_auth_pro.TENANT_ID =?";
+                "WHERE  idp_auth_pro.PROPERTY_KEY =?  AND idp_auth_pro.PROPERTY_VALUE = ? AND " +
+                "idp_auth_pro.TENANT_ID =? AND idp_auth.NAME=?";
 
         public static final String GET_SIMILAR_IDP_ENTITIY_IDS = "SELECT COUNT(*) FROM IDP_AUTHENTICATOR_PROPERTY " +
                 "WHERE PROPERTY_KEY=? " +

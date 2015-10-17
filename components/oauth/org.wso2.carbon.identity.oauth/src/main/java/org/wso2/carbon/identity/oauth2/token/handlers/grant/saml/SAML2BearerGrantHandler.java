@@ -173,8 +173,9 @@ public class SAML2BearerGrantHandler extends AbstractAuthorizationGrantHandler {
             return false;
         } else {
             try {
-                identityProvider = IdentityProviderManager.getInstance().
-                        getIdPByAuthenticatorPropertyValue("IdPEntityId",
+                identityProvider = IdentityProviderManager.getInstance()
+                        .getIdPByAuthenticatorPropertyValue("IdPEntityId",
+                                IdentityApplicationConstants.Authenticator.SAML2SSO.NAME,
                                 assertion.getIssuer().getValue(), tenantDomain, false);
                 // IF Federated IDP not found get the resident IDP and check,
                 // resident IDP entitiID == issuer
