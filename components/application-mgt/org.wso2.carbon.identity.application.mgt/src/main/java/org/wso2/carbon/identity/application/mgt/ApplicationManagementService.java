@@ -20,6 +20,7 @@ package org.wso2.carbon.identity.application.mgt;
 import org.wso2.carbon.identity.application.common.IdentityApplicationManagementException;
 import org.wso2.carbon.identity.application.common.model.ApplicationBasicInfo;
 import org.wso2.carbon.identity.application.common.model.IdentityProvider;
+import org.wso2.carbon.identity.application.common.model.InboundAuthenticationRequestConfig;
 import org.wso2.carbon.identity.application.common.model.LocalAuthenticatorConfig;
 import org.wso2.carbon.identity.application.common.model.RequestPathAuthenticatorConfig;
 import org.wso2.carbon.identity.application.common.model.ServiceProvider;
@@ -183,5 +184,8 @@ public abstract class ApplicationManagementService {
 
     public abstract ServiceProvider getServiceProviderByClientId(String clientId, String clientType,
                                                                  String tenantDomain)
+            throws IdentityApplicationManagementException;
+
+    public abstract InboundAuthenticationRequestConfig[] getAllInboundApplicationAuthenticators()
             throws IdentityApplicationManagementException;
 }

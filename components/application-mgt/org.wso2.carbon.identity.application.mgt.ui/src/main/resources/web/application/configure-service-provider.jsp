@@ -16,6 +16,7 @@
 ~ under the License.
 -->
 
+<%@page import="org.wso2.carbon.identity.application.common.model.xsd.InboundApplicationAuthenticatorConfig"%>
 <%@page import="org.apache.axis2.context.ConfigurationContext"%>
 <%@ page import="org.wso2.carbon.CarbonConstants"%>
 <%@ page import="org.wso2.carbon.identity.application.common.model.xsd.IdentityProvider"%>
@@ -35,6 +36,8 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="org.owasp.encoder.Encode" %>
+<%@ page import="org.wso2.carbon.identity.application.common.model.xsd.Property" %>
+<%-- <%@ page import="org.wso2.carbon.identity.application.common.model.xsd.InboundApplicationAuthenticatorConfig" %> --%>
 <link href="css/idpmgt.css" rel="stylesheet" type="text/css" media="all"/>
 <carbon:breadcrumb label="breadcrumb.service.provider" resourceBundle="org.wso2.carbon.identity.application.mgt.ui.i18n.Resources"
                     topPage="true" request="<%=request%>" />
@@ -52,7 +55,7 @@ if (appBean.getServiceProvider()==null || appBean.getServiceProvider().getApplic
 %>
 <script>
 location.href = 'list-service-provider.jsp';
-</script>
+</script>	
 <% 
 }
 	String spName = appBean.getServiceProvider().getApplicationName();
@@ -178,6 +181,7 @@ location.href = 'list-service-provider.jsp';
 	Map<String, String> selectedProIdpConnectors = new HashMap<String, String>();
 	Map<String, Boolean> idpStatus = new HashMap<String, Boolean>();
 	Map<String, Boolean> IdpProConnectorsStatus = new HashMap<String, Boolean>();
+    Map<String, InboundApplicationAuthenticatorConfig> allInboundAuthConfigs = new HashMap<String, InboundApplicationAuthenticatorConfig>();
 
 	StringBuffer idpType = null;
 	StringBuffer connType = null;
@@ -251,6 +255,7 @@ location.href = 'list-service-provider.jsp';
 		                                                                  .getAttribute(CarbonConstants.CONFIGURATION_CONTEXT);
 		ApplicationManagementServiceClient serviceClient = new ApplicationManagementServiceClient(cookie, backendServerURL, configContext);
 		userStoreDomains = serviceClient.getUserStoreDomains();
+		allInboundAuthConfigs = serviceClient.getAllInboundApplicationAuthenticators();
 	} catch (Exception e) {
 		CarbonUIMessage.sendCarbonUIMessage("Error occured while loading User Store Domail", CarbonUIMessage.ERROR, request, e);
 	}
@@ -1318,7 +1323,177 @@ var roleMappinRowID = -1;
 					   </table>
 				   </div>
 
-			   </div>
+
+<%
+
+    if (allInboundAuthConfigs != null && allInboundAuthConfigs.size() > 0) {
+
+        for (Map.Entry<String, InboundApplicationAuthenticatorConfig> entry : allInboundAuthConfigs.entrySet()) {
+        	InboundApplicationAuthenticatorConfig authConfig = entry.getValue();
+            if (authConfig != null) {
+                boolean isEnabled = authConfig.getEnabled();
+
+                boolean isDefault = false;
+
+
+                String valueChecked = "";
+                String valueDefaultDisabled = "";
+
+                String enableChecked = "";
+                String enableDefaultDisabled = "";
+
+                if (isDefault) {
+                    valueChecked = "checked=\'checked\'";
+                    valueDefaultDisabled = "disabled=\'disabled\'";
+                }
+
+                if (isEnabled) {
+                    enableChecked = "checked=\'checked\'";
+                    enableDefaultDisabled = "disabled=\'disabled\'";
+                }
+
+                if (authConfig.getDisplayName() != null && authConfig.getDisplayName().trim().length() > 0) {
+
+%>
+
+
+<h2 id="custom_auth_head_"<%=authConfig.getDisplayName() %> class="sectionSeperator trigger active"
+    style="background-color: beige;">
+    <a href="#" style="text-transform:capitalize;"><%=authConfig.getDisplayName() %> Configuration</a>
+    <% if (isEnabled) { %>
+    <div id="custom_auth_head_enable_logo_<%=authConfig.getName()%>" class="enablelogo"
+         style="float:right;padding-right: 5px;padding-top: 5px;"><img src="images/ok.png" alt="enable" width="16"
+                                                                       height="16"></div>
+    <%} else {%>
+    <div id="custom_auth_head_enable_logo_<%=authConfig.getName()%>" class="enablelogo"
+         style="float:right;padding-right: 5px;padding-top: 5px; display: none"><img src="images/ok.png" alt="enable"
+                                                                                     width="16" height="16"></div>
+    <%}%>
+</h2>
+
+
+
+                    <div class="toggle_container sectionSub" style="margin-bottom:10px;display: none;"
+                         id="custom_auth_<%=authConfig.getName()%>">
+                        <table class="carbonFormTable">
+                            <tr>
+                                <td class="leftCol-med labelField">
+                                    <input type="hidden" name="custom_auth_name" value=<%=authConfig.getName()%>>
+                                    <input type="hidden" name="<%=authConfig.getName()%>_DisplayName" value=<%=authConfig.getDisplayName()%>>
+
+                                    <label for="<%=authConfig.getName()%>Enabled">Enable</label>
+                                </td>
+                                <td>
+                                    <div class="sectionCheckbox">
+                                        <input id="<%=authConfig.getName()%>_Enabled" name="<%=authConfig.getName()%>_Enabled"
+                                               type="checkbox" <%=enableChecked%>
+                                               onclick="checkEnabled(this); checkEnabledLogo(this, '<%=authConfig.getName()%>')"/>
+                                <span style="display:inline-block" class="sectionHelp">Specifies if custom authenticator is enabled for this Identity Provider
+                                </span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="leftCol-med labelField">
+                                    <label for="<%=authConfig.getName()%>_Default">Default</label>
+                                </td>
+                                <td>
+                                    <div class="sectionCheckbox">
+                                        <input id="<%=authConfig.getName()%>_Default" name="<%=authConfig.getName()%>_Default"
+                                               type="checkbox" <%=valueChecked%> <%=valueDefaultDisabled%> onclick="checkDefault(this);"/>
+                                 <span style="display:inline-block" class="sectionHelp">Specifies if custom authenticator is the default
+                                </span>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <% Property[] properties = authConfig.getProperties();
+                                if (properties != null && properties.length > 0) {
+                                    for (Property prop : properties) {
+                                        if (prop != null && prop.getDisplayName() != null) {
+                            %>
+
+                            <tr>
+                                <%if (prop.getRequired()) { %>
+                                <td class="leftCol-med labelField"><%=prop.getDisplayName()%>:<span class="required">*</span></td>
+                                <% } else { %>
+                                <td class="leftCol-med labelField"><%=prop.getDisplayName()%>:</td>
+                                <%} %>
+                                <td>
+                                    <% if (prop.getConfidential()) { %>
+
+                                    <% if (prop.getValue() != null) { %>
+                                    <div id="showHideButtonDivId" style="border:1px solid rgb(88, 105, 125);" class="leftCol-med">
+                                        <input id="cust_auth_prop_<%=authConfig.getName()%>#<%=prop.getName()%>"
+                                               name="cust_auth_prop_<%=authConfig.getName()%>#<%=prop.getName()%>" type="password"
+                                               value="<%=prop.getValue()%>"
+                                               style="  outline: none; border: none; min-width: 175px; max-width: 180px;"/>
+       												<span id="showHideButtonId"
+                                                          style=" float: right; padding-right: 5px;">
+       													<a style="margin-top: 5px;" class="showHideBtn"
+                                                           onclick="showHidePassword(this, 'cust_auth_prop_<%=authConfig.getName()%>#<%=prop.getName()%>')">Show</a>
+       												</span>
+                                    </div>
+                                    <% } else { %>
+
+                                    <div id="showHideButtonDivId" style="border:1px solid rgb(88, 105, 125);" class="leftCol-med">
+                                        <input id="cust_auth_prop_<%=authConfig.getName()%>#<%=prop.getName()%>"
+                                               name="cust_auth_prop_<%=authConfig.getName()%>#<%=prop.getName()%>" type="password"
+                                               style="  outline: none; border: none; min-width: 175px; max-width: 180px;"/>
+       												<span id="showHideButtonId"
+                                                          style=" float: right; padding-right: 5px;">
+       													<a style="margin-top: 5px;" class="showHideBtn"
+                                                           onclick="showHidePassword(this, 'cust_auth_prop_<%=authConfig.getName()%>#<%=prop.getName()%>')">Show</a>
+       												</span>
+                                    </div>
+
+                                    <% } %>
+
+                                    <% } else { %>
+
+                                    <% if (prop.getValue() != null) { %>
+                                    <input id="cust_auth_prop_<%=authConfig.getName()%>#<%=prop.getName()%>"
+                                           name="cust_auth_prop_<%=authConfig.getName()%>#<%=prop.getName()%>" type="text"
+                                           value="<%=prop.getValue()%>"/>
+                                    <% } else { %>
+                                    <input id="cust_auth_prop_<%=authConfig.getName()%>#<%=prop.getName()%>"
+                                           name="cust_auth_prop_<%=authConfig.getName()%>#<%=prop.getName()%>" type="text">
+                                    <% } %>
+
+                                    <% } %>
+
+                                    <%
+                                        if (prop.getDescription() != null) { %>
+                                    <div class="sectionHelp"><%=prop.getDescription()%>
+                                    </div>
+                                    <%} %>
+                                </td>
+                            </tr>
+                            <%
+                                        }
+                                    }
+                                }
+                            %>
+
+                        </table>
+                    </div>
+
+
+
+
+
+
+
+
+<%
+                }
+            }
+        }
+    }
+%>
+                        </div>
+            
+            
             
              <h2 id="app_authentication_advance_head"  class="sectionSeperator trigger active">
                		<a href="#"><fmt:message key="outbound.title.config.app.authentication.type"/></a>

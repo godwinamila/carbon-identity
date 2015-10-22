@@ -19,6 +19,8 @@
 package org.wso2.carbon.identity.application.common;
 
 import org.wso2.carbon.identity.application.common.model.FederatedAuthenticatorConfig;
+import org.wso2.carbon.identity.application.common.model.InboundAuthenticationConfig;
+import org.wso2.carbon.identity.application.common.model.InboundAuthenticationRequestConfig;
 import org.wso2.carbon.identity.application.common.model.LocalAuthenticatorConfig;
 import org.wso2.carbon.identity.application.common.model.RequestPathAuthenticatorConfig;
 
@@ -32,6 +34,7 @@ public class ApplicationAuthenticatorService {
     private List<LocalAuthenticatorConfig> localAuthenticators = new ArrayList<LocalAuthenticatorConfig>();
     private List<FederatedAuthenticatorConfig> federatedAuthenticators = new ArrayList<FederatedAuthenticatorConfig>();
     private List<RequestPathAuthenticatorConfig> requestPathAuthenticators = new ArrayList<RequestPathAuthenticatorConfig>();
+    private List<InboundAuthenticationRequestConfig> inboundAuthenticators = new ArrayList<InboundAuthenticationRequestConfig>();
 
     public static ApplicationAuthenticatorService getInstance() {
         if (instance == null) {
@@ -118,4 +121,31 @@ public class ApplicationAuthenticatorService {
             requestPathAuthenticators.remove(authenticator);
         }
     }
+
+    public List<InboundAuthenticationRequestConfig> getInboundApplicationAuthenticators() {
+        return this.inboundAuthenticators;
+    }
+
+    public InboundAuthenticationRequestConfig getInboundApplicationAuthenticatorByName(String name) {
+        for (InboundAuthenticationRequestConfig requestConfig : inboundAuthenticators) {
+            if (requestConfig.getInboundAuthType().equals(name)) {
+                return requestConfig;
+            }
+        }
+        return null;
+    }
+
+    public void addInboundApplicationAuthenticator(InboundAuthenticationRequestConfig authenticator) {
+        if (authenticator != null) {
+            inboundAuthenticators.add(authenticator);
+        }
+    }
+
+    public void removeInboundApplicationAuthenticator(InboundAuthenticationRequestConfig authenticator) {
+        if (authenticator != null) {
+            inboundAuthenticators.remove(authenticator);
+        }
+    }
+
 }
+

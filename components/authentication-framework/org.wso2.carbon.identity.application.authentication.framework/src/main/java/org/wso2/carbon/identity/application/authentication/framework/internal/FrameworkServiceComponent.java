@@ -31,10 +31,12 @@ import org.wso2.carbon.identity.application.authentication.framework.LocalApplic
 import org.wso2.carbon.identity.application.authentication.framework.RequestPathApplicationAuthenticator;
 import org.wso2.carbon.identity.application.authentication.framework.config.ConfigurationFacade;
 import org.wso2.carbon.identity.application.authentication.framework.exception.FrameworkException;
+import org.wso2.carbon.identity.application.authentication.framework.inbound.InboundApplicationAuthenticator;
 import org.wso2.carbon.identity.application.authentication.framework.listener.AuthenticationEndpointTenantActivityListener;
 import org.wso2.carbon.identity.application.authentication.framework.servlet.CommonAuthenticationServlet;
 import org.wso2.carbon.identity.application.common.ApplicationAuthenticatorService;
 import org.wso2.carbon.identity.application.common.model.FederatedAuthenticatorConfig;
+import org.wso2.carbon.identity.application.common.model.InboundAuthenticationRequestConfig;
 import org.wso2.carbon.identity.application.common.model.LocalAuthenticatorConfig;
 import org.wso2.carbon.identity.application.common.model.Property;
 import org.wso2.carbon.identity.application.common.model.RequestPathAuthenticatorConfig;
@@ -215,6 +217,12 @@ public class FrameworkServiceComponent {
             reqPathAuthenticatorConfig.setProperties(configProperties);
             reqPathAuthenticatorConfig.setDisplayName(authenticator.getFriendlyName());
             ApplicationAuthenticatorService.getInstance().addRequestPathAuthenticator(reqPathAuthenticatorConfig);
+        } else if (authenticator instanceof InboundApplicationAuthenticator) {
+            InboundAuthenticationRequestConfig inboundAuthenticationRequestConfig = new InboundAuthenticationRequestConfig();
+            inboundAuthenticationRequestConfig.setInboundAuthKey(authenticator.getName());
+            inboundAuthenticationRequestConfig.setProperties(configProperties);
+            inboundAuthenticationRequestConfig.setDisplayName(authenticator.getFriendlyName());
+            ApplicationAuthenticatorService.getInstance().addInboundApplicationAuthenticator(inboundAuthenticationRequestConfig);
         }
 
         if (log.isDebugEnabled()) {

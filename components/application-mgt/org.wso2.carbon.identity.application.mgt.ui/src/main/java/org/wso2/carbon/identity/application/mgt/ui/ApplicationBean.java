@@ -44,6 +44,8 @@ import org.wso2.carbon.ui.util.CharacterEncoder;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -1141,6 +1143,50 @@ public class ApplicationBean {
             authRequestList.add(opicAuthenticationRequest);
         }
 
+        List<String> customAuthenticatorNames = new ArrayList<String>();
+        Map<String, List<Property>> customAuthenticatorProperties = new HashMap<String, List<Property>>();
+        Map<String, String> paramMap = new HashMap<String, String>();
+
+        Enumeration en = request.getParameterNames();
+        while (en.hasMoreElements()) {
+
+            String paramName = (String) en.nextElement();
+            String paramValue = request.getParameter(paramName);
+
+            if(paramName.startsWith("custom_auth_name")){
+                customAuthenticatorNames.add(paramValue);
+            }else if(paramName.startsWith("cust_auth_prop_")){
+                int length = "cust_auth_prop_".length();
+                String authPropString = new String(paramName).substring(length);
+                if (authPropString.indexOf("#") > 0) {
+                    String authName = authPropString.substring(0,
+                            authPropString.indexOf("#"));
+                    String propName = authPropString.substring(authPropString
+                            .indexOf("#") + 1);
+                    String propVal = new String(paramValue);
+                    Property prop = new Property();
+                    prop.setName(propName);
+                    prop.setValue(propVal);
+
+                    List<Property> propList = null;
+
+                    if (customAuthenticatorProperties.get(authName) == null) {
+                        customAuthenticatorProperties.put(authName,
+                                new ArrayList<Property>());
+                    }
+                    propList = customAuthenticatorProperties.get(authName);
+                    propList.add(prop);
+                    customAuthenticatorProperties.put(authName, propList);
+                }
+            }else{
+                paramMap.put(paramName, paramValue);
+            }
+        }
+        buildCustomAuthenticationConfiguration(serviceProvider, customAuthenticatorNames,
+                customAuthenticatorProperties, paramMap,authRequestList);
+
+
+
         if (serviceProvider.getInboundAuthenticationConfig() == null) {
             serviceProvider.setInboundAuthenticationConfig(new InboundAuthenticationConfig());
         }
@@ -1301,6 +1347,37 @@ public class ApplicationBean {
         serviceProvider.getClaimConfig().setAlwaysSendMappedLocalSubjectId(
                 alwaysSendMappedLocalSubjectId != null
                         && "on".equals(alwaysSendMappedLocalSubjectId) ? true : false);
+
+    }
+
+    private static void buildCustomAuthenticationConfiguration(ServiceProvider serviceProviderApp,
+            List<String> authenticatorNames,
+            Map<String, List<Property>> customAuthenticatorProperties, Map<String, String> paramMap, List<InboundAuthenticationRequestConfig> authRequestList){
+
+        if (CollectionUtils.isNotEmpty(authenticatorNames)) {
+
+            for (String authName : authenticatorNames) {
+                InboundAuthenticationRequestConfig customConfig = new InboundAuthenticationRequestConfig();
+                customConfig.setInboundAuthKey(serviceProviderApp.getApplicationName());
+                customConfig.setInboundAuthType(authName);
+
+//                if ("on".equals(paramMap.get(authName + "_Enabled"))) {
+//                    customConfig.setEnabled(true);
+//                }
+                List<Property> customProps = customAuthenticatorProperties.get(authName);
+
+                if (CollectionUtils.isNotEmpty(customProps)) {
+                    customConfig.setProperties(customProps.toArray(new Property[customProps.size()]));
+                }
+
+                authRequestList.add(customConfig);
+            }
+//            if (authenticators == null || authenticators.length == 0) {
+//                serviceProviderApp.setFederatedAuthenticatorConfigs(fedAuthConfigList);
+//            } else {
+//                serviceProviderApp.setFederatedAuthenticatorConfigs(concatArrays(fedAuthConfigList, authenticators));
+//            }
+        }
 
     }
 

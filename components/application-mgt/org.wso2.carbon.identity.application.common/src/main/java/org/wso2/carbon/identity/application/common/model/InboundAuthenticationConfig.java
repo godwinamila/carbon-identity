@@ -33,6 +33,7 @@ public class InboundAuthenticationConfig implements Serializable {
     private transient InboundAuthenticationRequestConfig[] inboundAuthenticationRequestConfigs = new
             InboundAuthenticationRequestConfig[0];
 
+
     /*
      * <InboundAuthenticationConfig>
      * <InboundAuthenticationRequestConfigs></InboundAuthenticationRequestConfigs>
@@ -97,10 +98,12 @@ public class InboundAuthenticationConfig implements Serializable {
     }
 
     /**
-     * @param inboundAuthenticationRequest
+     * @param inboundAuthenticationRequestConfigs
      */
     public void setInboundAuthenticationRequestConfigs(
             InboundAuthenticationRequestConfig[] inboundAuthenticationRequestConfigs) {
         this.inboundAuthenticationRequestConfigs = inboundAuthenticationRequestConfigs;
     }
+
+
 }

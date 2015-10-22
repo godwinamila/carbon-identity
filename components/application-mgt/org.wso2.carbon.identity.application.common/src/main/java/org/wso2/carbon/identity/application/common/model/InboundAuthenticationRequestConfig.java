@@ -35,6 +35,8 @@ public class InboundAuthenticationRequestConfig implements Serializable {
 
     private String inboundAuthKey;
     private String inboundAuthType;
+    private boolean enabled;
+    private String displayName;
     private Property[] properties = new Property[0];
 
     /*
@@ -130,4 +132,19 @@ public class InboundAuthenticationRequestConfig implements Serializable {
         this.properties = propertySet.toArray(new Property[propertySet.size()]);
     }
 
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
+    }
 }

@@ -23,6 +23,7 @@ import org.apache.axis2.AxisFault;
 import org.apache.axis2.description.AxisService;
 import org.apache.axis2.description.Parameter;
 import org.apache.axis2.engine.AxisConfiguration;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
@@ -33,6 +34,7 @@ import org.wso2.carbon.context.PrivilegedCarbonContext;
 import org.wso2.carbon.context.RegistryType;
 import org.wso2.carbon.core.RegistryResources;
 import org.wso2.carbon.directory.server.manager.DirectoryServerManager;
+import org.wso2.carbon.identity.application.common.ApplicationAuthenticatorService;
 import org.wso2.carbon.identity.application.common.IdentityApplicationManagementException;
 import org.wso2.carbon.identity.application.common.model.ApplicationBasicInfo;
 import org.wso2.carbon.identity.application.common.model.ApplicationPermission;
@@ -739,6 +741,18 @@ public class ApplicationManagementServiceImpl extends ApplicationManagementServi
             endTenantFlow();
         }
         return serviceProvider;
+    }
+
+    @Override
+    public InboundAuthenticationRequestConfig[] getAllInboundApplicationAuthenticators()
+            throws IdentityApplicationManagementException {
+
+        List<InboundAuthenticationRequestConfig> appConfig = ApplicationAuthenticatorService
+                .getInstance().getInboundApplicationAuthenticators();
+        if (CollectionUtils.isNotEmpty(appConfig)) {
+            return appConfig.toArray(new InboundAuthenticationRequestConfig[appConfig.size()]);
+        }
+        return new InboundAuthenticationRequestConfig[0];
     }
 
     private void loadApplicationPermissions(String serviceProviderName, ServiceProvider serviceProvider)

@@ -24,6 +24,7 @@ import org.wso2.carbon.core.AbstractAdmin;
 import org.wso2.carbon.identity.application.common.IdentityApplicationManagementException;
 import org.wso2.carbon.identity.application.common.model.ApplicationBasicInfo;
 import org.wso2.carbon.identity.application.common.model.IdentityProvider;
+import org.wso2.carbon.identity.application.common.model.InboundAuthenticationRequestConfig;
 import org.wso2.carbon.identity.application.common.model.LocalAuthenticatorConfig;
 import org.wso2.carbon.identity.application.common.model.RequestPathAuthenticatorConfig;
 import org.wso2.carbon.identity.application.common.model.ServiceProvider;
@@ -185,4 +186,14 @@ public class ApplicationManagementAdminService extends AbstractAdmin {
         return applicationMgtService.getAllLocalClaimUris(getTenantDomain());
     }
 
+    /**
+     * Get inbound application authenticators
+     *
+     * @return InboundApplicationAuthenticatorConfig array
+     * @throws org.wso2.carbon.identity.application.common.IdentityApplicationManagementException
+     */
+    public InboundAuthenticationRequestConfig[] getAllInboundApplicationAuthenticators() throws IdentityApplicationManagementException {
+        applicationMgtService = ApplicationManagementService.getInstance();
+        return applicationMgtService.getAllInboundApplicationAuthenticators();
+    }
 }
