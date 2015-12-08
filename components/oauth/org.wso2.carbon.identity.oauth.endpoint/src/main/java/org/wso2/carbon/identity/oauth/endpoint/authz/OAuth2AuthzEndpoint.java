@@ -111,6 +111,9 @@ public class OAuth2AuthzEndpoint {
 
         Object flowStatus = request.getAttribute(FrameworkConstants.RequestParams.FLOW_STATUS);
         String isToCommonOauth = request.getParameter(FrameworkConstants.RequestParams.TO_COMMONAUTH);
+        if (log.isDebugEnabled()) {
+            log.debug("Flow status : " + flowStatus + " " + "Is to common oauth : " + isToCommonOauth);
+        }
 
         if ("true".equals(isToCommonOauth) && flowStatus == null) {
             try {

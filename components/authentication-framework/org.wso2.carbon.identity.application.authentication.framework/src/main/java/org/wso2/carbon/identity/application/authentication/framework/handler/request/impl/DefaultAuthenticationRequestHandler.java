@@ -304,16 +304,7 @@ public class DefaultAuthenticationRequestHandler implements AuthenticationReques
                     "ApplicationAuthenticationFramework", auditData, FrameworkConstants.AUDIT_SUCCESS));
         }
 
-        // Checking weather inbound protocol is an already cache removed one, request come from federated or other
-        // authenticator in multi steps scenario. Ex. Fido
-        if (FrameworkUtils.getCacheDisabledAuthenticators().contains(context.getRequestType())
-                && (response instanceof CommonAuthResponseWrapper)) {
-            //Set the result as request attribute
-            request.setAttribute("sessionDataKey", context.getCallerSessionKey());
-            addAuthenticationResultToRequest(request, authenticationResult);
-        }else{
-            FrameworkUtils.addAuthenticationResultToCache(context.getCallerSessionKey(), authenticationResult);
-        }
+        addAuthenticationResult(context, request, response, authenticationResult);
         /*
          * TODO Cache retaining is a temporary fix. Remove after Google fixes
          * http://code.google.com/p/gdata-issues/issues/detail?id=6628
@@ -325,6 +316,21 @@ public class DefaultAuthenticationRequestHandler implements AuthenticationReques
         }
 
         sendResponse(request, response, context);
+    }
+
+    // Checking weather inbound protocol is an already cache removed one, request come from federated or other
+    // authenticator in multi steps scenario. Ex. Fido
+    private void addAuthenticationResult(AuthenticationContext context, HttpServletRequest request,
+            HttpServletResponse response, AuthenticationResult authenticationResult) {
+
+        if (FrameworkUtils.getCacheDisabledAuthenticators().contains(context.getRequestType())
+                && (response instanceof CommonAuthResponseWrapper)) {
+            //Set the result as request attribute
+            request.setAttribute("sessionDataKey", context.getCallerSessionKey());
+            addAuthenticationResultToRequest(request, authenticationResult);
+        }else{
+            FrameworkUtils.addAuthenticationResultToCache(context.getCallerSessionKey(), authenticationResult);
+        }
     }
 
 

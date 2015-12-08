@@ -154,6 +154,9 @@ public class SAMLSSOProviderServlet extends HttpServlet {
         try {
 
             String isToCommonOauth = req.getParameter(FrameworkConstants.RequestParams.TO_COMMONAUTH);
+            if (log.isDebugEnabled()) {
+                log.debug("Flow status : " + flowStatus + " " + "Is to common oauth : " + isToCommonOauth);
+            }
             if ("true".equals(isToCommonOauth) & flowStatus == null) {
                 sendRequestToFramework(req, resp);
                 return;

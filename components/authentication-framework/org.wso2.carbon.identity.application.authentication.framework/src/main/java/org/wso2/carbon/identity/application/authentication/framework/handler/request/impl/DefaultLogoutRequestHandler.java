@@ -189,13 +189,7 @@ public class DefaultLogoutRequestHandler implements LogoutRequestHandler {
                 authenticationResult.setSaaSApp(sequenceConfig.getApplicationConfig().isSaaSApp());
             }
 
-            if (FrameworkUtils.getCacheDisabledAuthenticators().contains(context.getRequestType())
-                    && (response instanceof CommonAuthResponseWrapper)) {
-                //Set authentication result as request attribute
-                addAuthenticationResultToRequest(request, authenticationResult);
-            }else{
-                FrameworkUtils.addAuthenticationResultToCache(context.getCallerSessionKey(), authenticationResult);
-            }
+            addAuthenticationResult(context, request, response, authenticationResult);
 
             redirectURL = context.getCallerPath() + "?sessionDataKey=" + context.getCallerSessionKey();
         } else {
@@ -220,6 +214,21 @@ public class DefaultLogoutRequestHandler implements LogoutRequestHandler {
 
         // redirect to the caller
         response.sendRedirect(redirectURL);
+    }
+
+
+    // Checking weather inbound protocol is an already cache removed one, request come from federated or other
+    // authenticator in multi steps scenario. Ex. Fido
+    private void addAuthenticationResult(AuthenticationContext context, HttpServletRequest request,
+            HttpServletResponse response, AuthenticationResult authenticationResult){
+
+        if (FrameworkUtils.getCacheDisabledAuthenticators().contains(context.getRequestType())
+                && (response instanceof CommonAuthResponseWrapper)) {
+            //Set authentication result as request attribute
+            addAuthenticationResultToRequest(request, authenticationResult);
+        }else{
+            FrameworkUtils.addAuthenticationResultToCache(context.getCallerSessionKey(), authenticationResult);
+        }
     }
 
     /**
