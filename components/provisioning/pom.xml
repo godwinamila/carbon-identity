@@ -35,7 +35,6 @@
     <url>http://wso2.org</url>
 
     <modules>
-        <module>org.wso2.carbon.identity.provisioning</module>
         <module>org.wso2.carbon.identity.provisioning.connector.spml</module>
         <module>org.wso2.carbon.identity.provisioning.connector.google</module>
         <module>org.wso2.carbon.identity.provisioning.connector.salesforce</module>

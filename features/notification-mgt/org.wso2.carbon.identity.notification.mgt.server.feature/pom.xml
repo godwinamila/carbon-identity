@@ -94,8 +94,6 @@
                                 </properties>
                             </adviceFile>
                             <bundles>
-                                <bundleDef>org.wso2.carbon.identity:org.wso2.carbon.identity.notification.mgt
-                                </bundleDef>
                                 <bundleDef>org.wso2.carbon.identity:org.wso2.carbon.identity.notification.mgt.email
                                 </bundleDef>
                                 <bundleDef>org.wso2.carbon.identity:org.wso2.carbon.identity.notification.mgt.json
