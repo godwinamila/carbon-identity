@@ -38,36 +38,37 @@
     </scm>
 
     <modules>
-        <module>service-stubs/identity</module>
-        <module>components/agents</module>
-        <module>components/application-authenticators</module>
-        <module>components/notification-mgt</module>
-        <module>components/oauth</module>
-        <module>components/openid</module>
-        <module>components/provisioning</module>
-        <module>components/scim</module>
-        <module>components/sso-saml</module>
-        <module>components/tools</module>
-        <module>components/user-mgt</module>
-        <module>components/user-store</module>
-        <module>components/carbon-authenticators</module>
-        <module>components/policy-editor</module>
-        <module>components/sts</module>
-        <module>components/workflow-mgt</module>
-        <module>features/carbon-authenticators</module>
-        <module>features/openid</module>
-        <module>features/oauth</module>
-        <module>features/sso-saml</module>
-        <module>features/application-authenticators</module>
-        <module>features/scim</module>
-        <module>features/provisioning</module>
-        <module>features/tools</module>
-        <module>features/notification-mgt</module>
-        <module>features/sts</module>
-        <module>features/user-mgt</module>
-        <module>features/workflow-mgt</module>
-        <module>features/agents</module>
-        <module>features/categories</module>
+        <!--<module>service-stubs/identity</module>-->
+        <!--<module>oauth/components</module>-->
+        <!--<module>components/agents</module>-->
+        <!--<module>components/application-authenticators</module>-->
+        <!--<module>components/notification-mgt</module>-->
+        <!--<module>components/oauth</module>-->
+        <!--<module>components/openid</module>-->
+        <!--<module>components/provisioning</module>-->
+        <!--<module>components/scim</module>-->
+        <!--<module>components/sso-saml</module>-->
+        <!--<module>components/tools</module>-->
+        <!--<module>components/user-mgt</module>-->
+        <!--<module>components/user-store</module>-->
+        <!--<module>components/carbon-authenticators</module>-->
+        <!--<module>components/policy-editor</module>-->
+        <!--<module>components/sts</module>-->
+        <!--<module>components/workflow-mgt</module>-->
+        <!--<module>features/carbon-authenticators</module>-->
+        <!--<module>features/openid</module>-->
+        <!--<module>features/oauth</module>-->
+        <!--<module>features/sso-saml</module>-->
+        <!--<module>features/application-authenticators</module>-->
+        <!--<module>features/scim</module>-->
+        <!--<module>features/provisioning</module>-->
+        <!--<module>features/tools</module>-->
+        <!--<module>features/notification-mgt</module>-->
+        <!--<module>features/sts</module>-->
+        <!--<module>features/user-mgt</module>-->
+        <!--<module>features/workflow-mgt</module>-->
+        <!--<module>features/agents</module>-->
+        <!--<module>features/categories</module>-->
     </modules>
 
     <repositories>
