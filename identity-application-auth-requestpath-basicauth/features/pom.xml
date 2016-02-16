@@ -25,13 +25,13 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>oauth-request-path-authenticator-feature</artifactId>
+    <artifactId>basicauth-request-path-authenticator-feature</artifactId>
     <packaging>pom</packaging>
-    <name>WSO2 Carbon - OAuth Request Path Application Autenticator Feature Aggregator Module</name>
+    <name>WSO2 Carbon - Basic Auth Request Path Application Autenticator Feature Aggregator Module</name>
     <url>http://wso2.org</url>
 
     <modules>
-        <module>org.wso2.carbon.identity.application.authenticator.requestpath.oauth.server.feature</module>
+        <module>org.wso2.carbon.identity.application.authenticator.requestpath.basicauth.server.feature</module>
     </modules>
 
 </project>
