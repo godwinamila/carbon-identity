@@ -25,24 +25,19 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>identity-inbound-auth-oauth</artifactId>
+    <artifactId>identity-usermgt-account-association</artifactId>
     <packaging>pom</packaging>
-    <name>WSO2 Carbon OAuth module</name>
+    <name>WSO2 Carbon User Account Association Module</name>
     <description>
 
     </description>
     <url>http://wso2.org</url>
 
     <modules>
-        <module>components/org.wso2.carbon.identity.oauth</module>
-        <module>components/org.wso2.carbon.identity.oauth.common</module>
-        <module>components/org.wso2.carbon.identity.oauth.endpoint</module>
-        <module>components/org.wso2.carbon.identity.oauth.ui</module>
-
-        <module>features/org.wso2.carbon.identity.oauth.common.feature</module>
-        <module>features/org.wso2.carbon.identity.oauth.feature</module>
-        <module>features/org.wso2.carbon.identity.oauth.server.feature</module>
-        <module>features/org.wso2.carbon.identity.oauth.ui.feature</module>
+        <module>components/org.wso2.carbon.identity.user.account.association</module>
+        <module>features/org.wso2.carbon.identity.user.account.association.feature</module>
+        <module>features/org.wso2.carbon.identity.user.account.association.server.feature</module>
+        <module>features/org.wso2.carbon.identity.user.account.association.ui.feature</module>
     </modules>
 
 </project>

@@ -25,24 +25,18 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>identity-inbound-auth-oauth</artifactId>
+    <artifactId>identity-usermgt-ws-service</artifactId>
     <packaging>pom</packaging>
-    <name>WSO2 Carbon OAuth module</name>
+    <name>WSO2 Carbon Remote User Management Service</name>
     <description>
 
     </description>
     <url>http://wso2.org</url>
 
     <modules>
-        <module>components/org.wso2.carbon.identity.oauth</module>
-        <module>components/org.wso2.carbon.identity.oauth.common</module>
-        <module>components/org.wso2.carbon.identity.oauth.endpoint</module>
-        <module>components/org.wso2.carbon.identity.oauth.ui</module>
-
-        <module>features/org.wso2.carbon.identity.oauth.common.feature</module>
-        <module>features/org.wso2.carbon.identity.oauth.feature</module>
-        <module>features/org.wso2.carbon.identity.oauth.server.feature</module>
-        <module>features/org.wso2.carbon.identity.oauth.ui.feature</module>
+        <module>components/org.wso2.carbon.um.ws.service</module>
+        <module>features/org.wso2.carbon.um.ws.service.feature</module>
+        <module>features/org.wso2.carbon.um.ws.service.server.feature</module>
     </modules>
 
 </project>
