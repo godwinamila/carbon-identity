@@ -25,16 +25,16 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>identity-userstore-remote</artifactId>
+    <artifactId>identity-carbon-auth-signedjwt</artifactId>
     <packaging>pom</packaging>
-    <name>WSO2 Carbon Remote Userstore Module</name>
+    <name>WSO2 Carbon - SignedJWT Authenticator Aggregator Module</name>
     <description>
 
     </description>
     <url>http://wso2.org</url>
 
     <modules>
-        <module>components/org.wso2.carbon.identity.user.store.remote</module>
+        <module>components/org.wso2.carbon.identity.authenticator.signedjwt</module>
     </modules>
 
 </project>

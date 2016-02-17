@@ -25,16 +25,17 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>identity-userstore-remote</artifactId>
+    <artifactId>identity-application-auth-samlsso</artifactId>
     <packaging>pom</packaging>
-    <name>WSO2 Carbon Remote Userstore Module</name>
+    <name>WSO2 Carbon - SAML SSO Application Autenticator Feature Aggregator Module</name>
     <description>
 
     </description>
     <url>http://wso2.org</url>
 
     <modules>
-        <module>components/org.wso2.carbon.identity.user.store.remote</module>
+        <module>components/org.wso2.carbon.identity.application.authenticator.social</module>
+        <module>features/org.wso2.carbon.identity.application.authenticator.social.server.feature</module>
     </modules>
 
 </project>

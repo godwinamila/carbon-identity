@@ -25,16 +25,20 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>identity-userstore-remote</artifactId>
+    <artifactId>identity-tool-samlsso-validator</artifactId>
     <packaging>pom</packaging>
-    <name>WSO2 Carbon Remote Userstore Module</name>
+    <name>WSO2 Carbon - Saml SSO validator Aggregator Module</name>
     <description>
 
     </description>
     <url>http://wso2.org</url>
 
     <modules>
-        <module>components/org.wso2.carbon.identity.user.store.remote</module>
+        <module>components/org.wso2.carbon.identity.tools.saml.validator</module>
+        <module>components/org.wso2.carbon.identity.tools.saml.validator.ui</module>
+        <module>features/org.wso2.carbon.identity.tools.saml.validator.feature</module>
+        <module>features/org.wso2.carbon.identity.tools.saml.validator.server.feature</module>
+        <module>features/org.wso2.carbon.identity.tools.saml.validator.ui.feature</module>
     </modules>
 
 </project>

@@ -25,16 +25,17 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>identity-userstore-remote</artifactId>
+    <artifactId>identity-application-auth-requestpath-basicauth</artifactId>
     <packaging>pom</packaging>
-    <name>WSO2 Carbon Remote Userstore Module</name>
+    <name>WSO2 Carbon - Basic Authentication Request Path Identity Application Authenticator Module</name>
     <description>
 
     </description>
     <url>http://wso2.org</url>
 
     <modules>
-        <module>components/org.wso2.carbon.identity.user.store.remote</module>
+        <module>components/org.wso2.carbon.identity.application.authenticator.requestpath.basicauth</module>
+        <module>features/org.wso2.carbon.identity.application.authenticator.requestpath.basicauth.server.feature</module>
     </modules>
 
 </project>
