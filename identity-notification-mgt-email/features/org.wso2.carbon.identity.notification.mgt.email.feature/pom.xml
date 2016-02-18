@@ -26,9 +26,9 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>org.wso2.carbon.identity.notification.mgt.server.feature</artifactId>
+    <artifactId>org.wso2.carbon.identity.notification.mgt.email.feature</artifactId>
     <packaging>pom</packaging>
-    <name>Notification-mgt server feature</name>
+    <name>Notification-mgt email feature</name>
     <url>http://wso2.org</url>
     <description>This feature contains the bundles required for Notification mgt</description>
 
@@ -39,7 +39,7 @@
         </dependency>
         <dependency>
             <groupId>org.wso2.carbon.identity</groupId>
-            <artifactId>org.wso2.carbon.identity.notification.mgt.json</artifactId>
+            <artifactId>org.wso2.carbon.identity.notification.mgt.email</artifactId>
         </dependency>
     </dependencies>
 

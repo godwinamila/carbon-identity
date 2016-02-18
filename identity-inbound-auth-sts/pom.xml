@@ -35,13 +35,15 @@
 
     <modules>
         <module>components/org.wso2.carbon.identity.sts.mgt</module>
+        <module>components/org.wso2.carbon.identity.sts.mgt.stub</module>
         <module>components/org.wso2.carbon.identity.sts.mgt.ui</module>
         <module>components/org.wso2.carbon.identity.sts.passive</module>
+        <module>components/org.wso2.carbon.identity.sts.passive.stub</module>
         <module>components/org.wso2.carbon.identity.sts.passive.ui</module>
         <module>components/org.wso2.carbon.identity.sts.store</module>
-        <module>components/org.wso2.carbon.identity.sts.mgt.stub</module>
-        <module>components/org.wso2.carbon.identity.sts.passive.stub</module>
+        <module>components/org.wso2.carbon.sts</module>
         <module>components/org.wso2.carbon.sts.stub</module>
+        <module>components/org.wso2.carbon.sts.ui</module>
 
         <module>features/org.wso2.carbon.identity.sts.mgt.feature</module>
         <module>features/org.wso2.carbon.identity.sts.mgt.server.feature</module>
@@ -49,6 +51,9 @@
         <module>features/org.wso2.carbon.identity.sts.passive.feature</module>
         <module>features/org.wso2.carbon.identity.sts.passive.server.feature</module>
         <module>features/org.wso2.carbon.identity.sts.passive.ui.feature</module>
+        <module>features/org.wso2.carbon.sts.feature</module>
+        <module>features/org.wso2.carbon.sts.server.feature</module>
+        <module>features/org.wso2.carbon.sts.ui.feature</module>
     </modules>
 
 </project>
