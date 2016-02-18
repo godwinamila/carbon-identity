@@ -34,8 +34,9 @@
     <url>http://wso2.org</url>
 
     <modules>
-        <module>components/org.wso2.carbon.identity.application.authenticator.social</module>
-        <module>features/org.wso2.carbon.identity.application.authenticator.social.server.feature</module>
+        <module>components/org.wso2.carbon.identity.application.authenticator.samlsso</module>
+        <module>components/org.wso2.carbon.identity.authenticator.saml2.sso.stub</module>
+        <module>features/org.wso2.carbon.identity.application.authenticator.samlsso.server.feature</module>
     </modules>
 
 </project>

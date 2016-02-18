@@ -35,6 +35,7 @@
 
     <modules>
         <module>components/org.wso2.carbon.identity.application.authenticator.fido</module>
+        <module>components/org.wso2.carbon.identity.application.authenticator.fido</module>
         <module>features/org.wso2.carbon.identity.application.authenticator.fido.server.feature</module>
     </modules>
 

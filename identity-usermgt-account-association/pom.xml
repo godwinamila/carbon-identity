@@ -35,6 +35,7 @@
 
     <modules>
         <module>components/org.wso2.carbon.identity.user.account.association</module>
+        <module>components/org.wso2.carbon.identity.user.account.association.stub</module>
         <module>features/org.wso2.carbon.identity.user.account.association.feature</module>
         <module>features/org.wso2.carbon.identity.user.account.association.server.feature</module>
         <module>features/org.wso2.carbon.identity.user.account.association.ui.feature</module>

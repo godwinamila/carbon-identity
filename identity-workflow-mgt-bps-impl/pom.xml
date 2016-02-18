@@ -36,6 +36,7 @@
     <modules>
         <module>components/org.wso2.carbon.identity.workflow.impl</module>
         <module>components/org.wso2.carbon.identity.workflow.impl.ui</module>
+        <module>components/org.wso2.carbon.identity.workflow.impl.stub</module>
     </modules>
 
 </project>

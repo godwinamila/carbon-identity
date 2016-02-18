@@ -36,6 +36,7 @@
     <modules>
         <module>components/org.wso2.carbon.identity.tools.saml.validator</module>
         <module>components/org.wso2.carbon.identity.tools.saml.validator.ui</module>
+        <module>components/org.wso2.carbon.identity.tools.saml.validator.stub</module>
         <module>features/org.wso2.carbon.identity.tools.saml.validator.feature</module>
         <module>features/org.wso2.carbon.identity.tools.saml.validator.server.feature</module>
         <module>features/org.wso2.carbon.identity.tools.saml.validator.ui.feature</module>

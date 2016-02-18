@@ -35,6 +35,7 @@
 
     <modules>
         <module>components/org.wso2.carbon.identity.user.registration</module>
+        <module>components/org.wso2.carbon.identity.user.registration.stub</module>
         <module>features/org.wso2.carbon.identity.user.registration.feature</module>
         <module>features/org.wso2.carbon.identity.user.registration.server.feature</module>
         <module>features/org.wso2.carbon.identity.user.registration.ui.feature</module>

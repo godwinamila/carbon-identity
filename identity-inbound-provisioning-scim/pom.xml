@@ -37,6 +37,8 @@
         <module>components/org.wso2.carbon.identity.scim.common</module>
         <module>components/org.wso2.carbon.identity.scim.provider</module>
         <module>components/org.wso2.carbon.identity.scim.ui</module>
+        <module>components/org.wso2.carbon.identity.scim.common.stub</module>
+
         <module>features/org.wso2.carbon.identity.scim.common.feature</module>
         <module>features/org.wso2.carbon.identity.scim.feature</module>
         <module>features/org.wso2.carbon.identity.scim.provider.feature</module>
