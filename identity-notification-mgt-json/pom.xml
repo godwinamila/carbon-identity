@@ -35,7 +35,7 @@
 
     <modules>
         <module>components/org.wso2.carbon.identity.notification.mgt.json</module>
-        <module>features/org.wso2.carbon.identity.notification.mgt.server.feature</module>
+        <module>features/org.wso2.carbon.identity.notification.mgt.json.feature</module>
     </modules>
 
 </project>
