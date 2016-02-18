@@ -20,9 +20,9 @@
 
     <parent>
         <groupId>org.wso2.carbon.identity</groupId>
-        <artifactId>scim</artifactId>
+        <artifactId>identity-inbound-provisioning-scim</artifactId>
         <version>5.0.8-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
+        <relativePath>../../pom.xml</relativePath>
     </parent>
 
     <artifactId>org.wso2.carbon.identity.scim.provider</artifactId>

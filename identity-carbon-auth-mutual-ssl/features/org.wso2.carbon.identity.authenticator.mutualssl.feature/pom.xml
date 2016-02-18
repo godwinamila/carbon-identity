@@ -20,9 +20,9 @@
 
     <parent>
         <groupId>org.wso2.carbon.identity</groupId>
-        <artifactId>mutual-ssl-authenticator-feature</artifactId>
+        <artifactId>identity-carbon-auth-mutual-ssl</artifactId>
         <version>5.0.8-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
+        <relativePath>../../pom.xml</relativePath>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
