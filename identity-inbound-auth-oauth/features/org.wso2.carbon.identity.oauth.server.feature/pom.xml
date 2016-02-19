@@ -168,12 +168,12 @@
                             </bundles>
                             <importFeatures>
                                 <importFeatureDef>org.wso2.carbon.core:${carbon.kernel.version}</importFeatureDef>
-                                <importFeatureDef>org.wso2.carbon.identity.core:${carbon.identity.version}</importFeatureDef>
+                                <importFeatureDef>org.wso2.carbon.identity.core:${identity.framework.version}</importFeatureDef>
                                 <importFeatureDef>org.wso2.carbon.identity.oauth.common:${carbon.identity.version}</importFeatureDef>
-                                <importFeatureDef>org.wso2.carbon.idp.mgt.server:${carbon.identity.version}</importFeatureDef>
-                                <importFeatureDef>org.wso2.carbon.security.mgt.server:${carbon.identity.version}</importFeatureDef>
-                                <importFeatureDef>org.wso2.carbon.identity.application.mgt.server:${carbon.identity.version}</importFeatureDef>
-                                <importFeatureDef>org.wso2.carbon.identity.application.authentication.framework.server:${carbon.identity.version}</importFeatureDef>
+                                <importFeatureDef>org.wso2.carbon.idp.mgt.server:${identity.framework.version}</importFeatureDef>
+                                <importFeatureDef>org.wso2.carbon.security.mgt.server:${identity.framework.version}</importFeatureDef>
+                                <importFeatureDef>org.wso2.carbon.identity.application.mgt.server:${identity.framework.version}</importFeatureDef>
+                                <importFeatureDef>org.wso2.carbon.identity.application.authentication.framework.server:${identity.framework.version}</importFeatureDef>
                             </importFeatures>
                         </configuration>
                     </execution>
