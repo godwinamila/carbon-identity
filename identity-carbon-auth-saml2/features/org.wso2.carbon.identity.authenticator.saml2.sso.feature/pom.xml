@@ -20,9 +20,15 @@
 
     <parent>
         <groupId>org.wso2.carbon.identity</groupId>
+<<<<<<< HEAD:identity-carbon-auth-saml2/features/org.wso2.carbon.identity.authenticator.saml2.sso.feature/pom.xml
         <artifactId>identity-carbon-auth-saml2</artifactId>
         <version>5.0.8-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
+=======
+        <artifactId>saml2-sso-authenticator-feature</artifactId>
+        <version>5.0.9-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+>>>>>>> 8cd996c1dc6d9e7c0df491322af6e9ddf1cf3709:features/carbon-authenticators/saml2-sso-authenticator/org.wso2.carbon.identity.authenticator.saml2.sso.feature/pom.xml
     </parent>
 
     <modelVersion>4.0.0</modelVersion>

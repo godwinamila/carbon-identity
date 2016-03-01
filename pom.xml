@@ -20,7 +20,7 @@
     <groupId>org.wso2.carbon.identity</groupId>
     <artifactId>identity-extension</artifactId>
     <packaging>pom</packaging>
-    <version>5.0.8-SNAPSHOT</version>
+    <version>5.0.9-SNAPSHOT</version>
     <name>WSO2 Carbon - Platform Aggregator Pom</name>
     <url>http://wso2.org</url>
 
@@ -1860,9 +1860,14 @@
         <carbon.commons.imp.pkg.version>[4.4.0, 5.0.0)</carbon.commons.imp.pkg.version>
 
         <!--Carbon identity version-->
+<<<<<<< HEAD
         <carbon.identity.version>5.0.8-SNAPSHOT</carbon.identity.version>
         <identity.framework.version>5.0.8-SNAPSHOT</identity.framework.version>
         <carbon.identity.package.export.version>${identity.framework.version}</carbon.identity.package.export.version>
+=======
+        <carbon.identity.version>5.0.9-SNAPSHOT</carbon.identity.version>
+        <carbon.identity.package.export.version>${carbon.identity.version}</carbon.identity.package.export.version>
+>>>>>>> 8cd996c1dc6d9e7c0df491322af6e9ddf1cf3709
         <carbon.identity.package.import.version.range>[5.0.0, 6.0.0)</carbon.identity.package.import.version.range>
 
         <!--Carbon component version-->

@@ -21,8 +21,13 @@
     <parent>
         <artifactId>identity-workflow-mgt-bps-impl</artifactId>
         <groupId>org.wso2.carbon.identity</groupId>
+<<<<<<< HEAD:identity-workflow-mgt-bps-impl/components/org.wso2.carbon.identity.workflow.impl.stub/pom.xml
         <version>5.0.8-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
+=======
+        <version>5.0.9-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+>>>>>>> 8cd996c1dc6d9e7c0df491322af6e9ddf1cf3709:service-stubs/identity/org.wso2.carbon.identity.workflow.impl.stub/pom.xml
     </parent>
 
     <modelVersion>4.0.0</modelVersion>

@@ -20,9 +20,15 @@
 
     <parent>
         <groupId>org.wso2.carbon.identity</groupId>
+<<<<<<< HEAD:identity-inbound-auth-sts/components/org.wso2.carbon.identity.sts.mgt.ui/pom.xml
         <artifactId>identity-inbound-auth-sts</artifactId>
         <version>5.0.8-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
+=======
+        <artifactId>sts</artifactId>
+        <version>5.0.9-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+>>>>>>> 8cd996c1dc6d9e7c0df491322af6e9ddf1cf3709:components/sts/org.wso2.carbon.identity.sts.mgt.ui/pom.xml
     </parent>
 
     <modelVersion>4.0.0</modelVersion>

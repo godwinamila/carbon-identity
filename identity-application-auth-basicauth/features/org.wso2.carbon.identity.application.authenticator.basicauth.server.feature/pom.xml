@@ -20,9 +20,15 @@
 
     <parent>
         <groupId>org.wso2.carbon.identity</groupId>
+<<<<<<< HEAD:identity-application-auth-basicauth/features/org.wso2.carbon.identity.application.authenticator.basicauth.server.feature/pom.xml
         <artifactId>identity-application-auth-basicauth</artifactId>
         <version>5.0.8-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
+=======
+        <artifactId>basicauth-application-authenticator-feature</artifactId>
+        <version>5.0.9-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+>>>>>>> 8cd996c1dc6d9e7c0df491322af6e9ddf1cf3709:features/application-authenticators/basic-auth/org.wso2.carbon.identity.application.authenticator.basicauth.server.feature/pom.xml
     </parent>
 
     <modelVersion>4.0.0</modelVersion>

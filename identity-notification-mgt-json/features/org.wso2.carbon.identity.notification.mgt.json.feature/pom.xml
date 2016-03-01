@@ -20,9 +20,15 @@
 
     <parent>
         <groupId>org.wso2.carbon.identity</groupId>
+<<<<<<< HEAD:identity-notification-mgt-json/features/org.wso2.carbon.identity.notification.mgt.json.feature/pom.xml
         <artifactId>identity-notification-mgt-json</artifactId>
         <version>5.0.8-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
+=======
+        <artifactId>claim-mgt-feature</artifactId>
+        <version>5.0.9-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+>>>>>>> 8cd996c1dc6d9e7c0df491322af6e9ddf1cf3709:features/claim-mgt/org.wso2.carbon.claim.mgt.server.feature/pom.xml
     </parent>
 
     <modelVersion>4.0.0</modelVersion>

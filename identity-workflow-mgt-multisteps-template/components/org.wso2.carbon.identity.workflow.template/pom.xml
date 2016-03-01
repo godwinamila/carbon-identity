@@ -21,8 +21,13 @@
     <parent>
         <artifactId>identity-workflow-mgt-multisteps-template</artifactId>
         <groupId>org.wso2.carbon.identity</groupId>
+<<<<<<< HEAD:identity-workflow-mgt-multisteps-template/components/org.wso2.carbon.identity.workflow.template/pom.xml
         <version>5.0.8-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
+=======
+        <version>5.0.9-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+>>>>>>> 8cd996c1dc6d9e7c0df491322af6e9ddf1cf3709:components/workflow-mgt/org.wso2.carbon.identity.workflow.template/pom.xml
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>org.wso2.carbon.identity.workflow.template</artifactId>
