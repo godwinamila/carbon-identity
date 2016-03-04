@@ -19,15 +19,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <groupId>org.wso2.carbon.identity</groupId>
-<<<<<<< HEAD:identity-usermgt-ws-api/components/org.wso2.carbon.um.ws.api.stub/pom.xml
-        <artifactId>identity-usermgt-ws-api</artifactId>
-        <version>5.0.8-SNAPSHOT</version>
+        <artifactId>identity-usermgt-ws</artifactId>
         <relativePath>../../pom.xml</relativePath>
-=======
-        <artifactId>carbon-service-stubs</artifactId>
         <version>5.0.9-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
->>>>>>> 8cd996c1dc6d9e7c0df491322af6e9ddf1cf3709:service-stubs/identity/org.wso2.carbon.um.ws.api.stub/pom.xml
     </parent>
 
     <modelVersion>4.0.0</modelVersion>

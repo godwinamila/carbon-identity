@@ -20,15 +20,9 @@
 
     <parent>
         <groupId>org.wso2.carbon.identity</groupId>
-<<<<<<< HEAD:identity-carbon-auth-iwa/features/org.wso2.carbon.identity.authenticator.iwa.feature/pom.xml
         <artifactId>identity-carbon-auth-iwa</artifactId>
-        <version>5.0.8-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
-=======
-        <artifactId>iwa-authenticator-feature</artifactId>
         <version>5.0.9-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
->>>>>>> 8cd996c1dc6d9e7c0df491322af6e9ddf1cf3709:features/carbon-authenticators/iwa-authenticator/org.wso2.carbon.identity.authenticator.iwa.feature/pom.xml
     </parent>
 
     <modelVersion>4.0.0</modelVersion>

@@ -20,14 +20,8 @@
 
     <parent>
         <groupId>org.wso2.carbon.identity</groupId>
-<<<<<<< HEAD:identity-application-auth-requestpath-oauth/pom.xml
-        <artifactId>identity-extension</artifactId>
-        <version>5.0.8-SNAPSHOT</version>
-=======
-        <artifactId>carbon-authenticators</artifactId>
+        <artifactId>identity-extension-parent</artifactId>
         <version>5.0.9-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
->>>>>>> 8cd996c1dc6d9e7c0df491322af6e9ddf1cf3709:components/carbon-authenticators/saml2-sso-authenticator/pom.xml
     </parent>
 
     <modelVersion>4.0.0</modelVersion>

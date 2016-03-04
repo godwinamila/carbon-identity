@@ -20,15 +20,9 @@
 
     <parent>
         <groupId>org.wso2.carbon.identity</groupId>
-<<<<<<< HEAD:identity-usermgt-account-association/features/org.wso2.carbon.identity.user.account.association.ui.feature/pom.xml
         <artifactId>identity-usermgt-account-association</artifactId>
-        <version>5.0.8-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
-=======
-        <artifactId>user-mgt-feature</artifactId>
         <version>5.0.9-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
->>>>>>> 8cd996c1dc6d9e7c0df491322af6e9ddf1cf3709:features/user-mgt/org.wso2.carbon.identity.user.account.association.ui.feature/pom.xml
     </parent>
 
     <modelVersion>4.0.0</modelVersion>

@@ -20,12 +20,12 @@
 
     <parent>
         <groupId>org.wso2.carbon.identity</groupId>
-        <artifactId>identity-extension</artifactId>
-        <version>5.0.8-SNAPSHOT</version>
+        <artifactId>identity-extension-parent</artifactId>
+        <version>5.0.9-SNAPSHOT</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>identity-usermgt-ws-api</artifactId>
+    <artifactId>identity-usermgt-ws</artifactId>
     <packaging>pom</packaging>
     <name>WSO2 Carbon Remote User Management Client</name>
     <description>
@@ -37,6 +37,9 @@
         <module>components/org.wso2.carbon.um.ws.api</module>
         <module>components/org.wso2.carbon.um.ws.api.stub</module>
         <module>features/org.wso2.carbon.um.ws.service.client.feature</module>
+        <module>components/org.wso2.carbon.um.ws.service</module>
+        <module>features/org.wso2.carbon.um.ws.service.feature</module>
+        <module>features/org.wso2.carbon.um.ws.service.server.feature</module>
     </modules>
 
 </project>

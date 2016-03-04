@@ -18,15 +18,9 @@
 
     <parent>
         <groupId>org.wso2.carbon.identity</groupId>
-<<<<<<< HEAD:identity-userstore-cassandra/components/org.wso2.carbon.user.cassandra/pom.xml
         <artifactId>identity-userstore-cassandra</artifactId>
-        <version>5.0.8-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
-=======
-        <artifactId>user-store</artifactId>
         <version>5.0.9-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
->>>>>>> 8cd996c1dc6d9e7c0df491322af6e9ddf1cf3709:components/user-store/org.wso2.carbon.user.cassandra/pom.xml
     </parent>
 
     <modelVersion>4.0.0</modelVersion>

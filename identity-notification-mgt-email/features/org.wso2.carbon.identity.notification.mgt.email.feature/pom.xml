@@ -20,15 +20,9 @@
 
     <parent>
         <groupId>org.wso2.carbon.identity</groupId>
-<<<<<<< HEAD:identity-notification-mgt-email/features/org.wso2.carbon.identity.notification.mgt.email.feature/pom.xml
         <artifactId>identity-notification-mgt-email</artifactId>
-        <version>5.0.8-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
-=======
-        <artifactId>identity-notification-mgt-feature</artifactId>
         <version>5.0.9-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
->>>>>>> 8cd996c1dc6d9e7c0df491322af6e9ddf1cf3709:features/notification-mgt/org.wso2.carbon.identity.notification.mgt.server.feature/pom.xml
     </parent>
 
     <modelVersion>4.0.0</modelVersion>

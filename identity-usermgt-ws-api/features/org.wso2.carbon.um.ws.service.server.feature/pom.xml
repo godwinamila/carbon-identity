@@ -20,15 +20,9 @@
 
     <parent>
         <groupId>org.wso2.carbon.identity</groupId>
-<<<<<<< HEAD:identity-usermgt-ws-service/features/org.wso2.carbon.um.ws.service.server.feature/pom.xml
-        <artifactId>identity-usermgt-ws-service</artifactId>
-        <version>5.0.8-SNAPSHOT</version>
+        <artifactId>identity-usermgt-ws</artifactId>
         <relativePath>../../pom.xml</relativePath>
-=======
-        <artifactId>user-mgt-feature</artifactId>
         <version>5.0.9-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
->>>>>>> 8cd996c1dc6d9e7c0df491322af6e9ddf1cf3709:features/user-mgt/org.wso2.carbon.um.ws.service.server.feature/pom.xml
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
